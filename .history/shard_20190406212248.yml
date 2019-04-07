@@ -1,0 +1,17 @@
+name: swift
+version: 0.1.0
+
+dependencies:
+  halite:
+    github: icyleaf/halite
+
+development_dependencies:
+  webmock:
+    github: manastech/webmock.cr
+
+authors:
+  - Josh Dvir <josh@dvir.us>
+
+crystal: 0.27.2
+
+license: MIT
