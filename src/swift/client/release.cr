@@ -37,28 +37,28 @@ module Swift
       # Retrieves the release content (chart + value) for the specified release.
       #
       # - release [String] The name of the release.
-      # - option format_values_as_json [Bool] Format release config and values to JSON string.
-      # - option version [String] Version of the release.
+      # - option params [Bool] :format_values_as_json Format release config and values to JSON string.
+      # - option params [String] :version Version of the release.
       # - return [JSON::Any] Release content (chart + value) for the specified release.
       #
       # ```
       # client.release("release_x")
       # ```
-      def release_content(release : String, format_values_as_json : Bool? = true, version : String? = nil) : JSON::Any
-        get("/tiller/v2/releases/#{release}/content/json?format_values_as_json=#{format_values_as_json}&version=#{version}").parse
+      def release_content(release : String, params : (Hash(String, _) | NamedTuple)? = nil) : JSON::Any
+        get("/tiller/v2/releases/#{release}/content/json", params: params).parse
       end
 
       # Retrieves a releasse's history.
       #
       # - release [String] The name of the release.
-      # - option max [Int32] The maximum number of releases to include. defaults to 20.
+      # - option params [Int32] :max The maximum number of releases to include. defaults to 20.
       # - return [JSON::Any] Releasse's history.
       #
       # ```
       # client.release("release_x")
       # ```
-      def release_history(release : String, max : Int32? = 20) : JSON::Any
-        get("/tiller/v2/releases/#{release}/json?max=#{max}").parse
+      def release_history(release : String, params : (Hash(String, _) | NamedTuple)? = nil) : JSON::Any
+        get("/tiller/v2/releases/#{release}/json", params: params).parse
       end
 
       # Rolls back a release to a previous version
