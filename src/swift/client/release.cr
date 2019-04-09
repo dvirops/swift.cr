@@ -15,8 +15,8 @@ module Swift
       #
       # ```
       # client.releases
-      # client.releases(params: { namespace: "development", all: true})
-      # client.releases(params: { sort_order: "ASC", status_codes: "DEPLOYED"})
+      # client.releases(params: {namespace: "development", all: true})
+      # client.releases(params: {sort_order: "ASC", status_codes: "DEPLOYED"})
       # ```
       def releases(params : (Hash(String, _) | NamedTuple)? = nil) : JSON::Any
         get("/tiller/v2/releases/json", params: params).parse
@@ -73,8 +73,8 @@ module Swift
       #
       # ```
       # client.rollback_release("release_x")
-      # client.rollback_release("release_x", params: { dry_run: true, force: true})
-      # client.rollback_release("release_x", params: { timeout: 1000, recreate: true})
+      # client.rollback_release("release_x", params: {dry_run: true, force: true})
+      # client.rollback_release("release_x", params: {timeout: 1000, recreate: true})
       # ```
       def rollback_release(release : String, params : (Hash(String, _) | NamedTuple)? = nil) : JSON::Any
         get("/tiller/v2/releases/#{release}/rollback/json", params: params).parse
