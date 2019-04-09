@@ -7,15 +7,15 @@ describe Swift do
     end
 
     it "should not override each other" do
-      client1 = Swift.client("https://api1.example.com")
-      client2 = Swift.client("https://api2.example.com")
-      client1.endpoint.should eq "https://api1.example.com"
-      client2.endpoint.should eq "https://api2.example.com"
+      client1 = Swift.client("https://swift1.example.com")
+      client2 = Swift.client("https://swift2.example.com")
+      client1.endpoint.should eq "https://swift1.example.com"
+      client2.endpoint.should eq "https://swift2.example.com"
     end
 
     it "should set username and password when provided" do
-      client = Swift.client("https://api2.example.com", "username", "password")
-      client.endpoint.should eq "https://api2.example.com"
+      client = Swift.client("https://swift2.example.com", "username", "password")
+      client.endpoint.should eq "https://swift2.example.com"
       client.username.should eq "username"
       client.password.should eq "password"
     end

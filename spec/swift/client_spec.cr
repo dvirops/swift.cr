@@ -7,10 +7,10 @@ describe Swift::Client do
     end
   end
 
-  # describe ".available?" do
-  #   it "should return true if service works" do
-  #     stub_get("/health", "health")
-  #     client.available?.should be_true
-  #   end
-  # end
+  describe ".available?" do
+    it "should return true if service works" do
+      stub_get("/tiller/v2/version/json", "version")
+      client.available?.should be_true
+    end
+  end
 end

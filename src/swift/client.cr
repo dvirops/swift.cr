@@ -112,7 +112,7 @@ module Swift
     # Set a default Auth(Basic Authentication) header
     private def default_headers : Hash(String, String)
       Hash(String, String).new.tap do |obj|
-        if @username && @password
+        if @username != nil && @password != nil
           obj["Authorization"] = "Basic " + Base64.encode(username.to_s + ":" + password.to_s).chomp
         end
 

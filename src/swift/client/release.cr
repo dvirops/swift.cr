@@ -4,7 +4,7 @@ module Swift
     #
     # See [https://appscode.com/products/swift/0.11.0/guides/api/](https://appscode.com/products/swift/0.11.0/guides/api/)
     module Release
-      # Gets a list of all releases.
+      # Retrieves a list of all releases.
       #
       # - option params [String] :namespace [name of namespace] | EMPTY (for all namespaces)
       # - option params [String] :sort_by UNKNOWN | NAME | LAST_RELEASED
@@ -37,6 +37,8 @@ module Swift
       # Retrieves the release content (chart + value) for the specified release.
       #
       # - release [String] The name of the release.
+      # - option format_values_as_json [Bool] Format release config and values to JSON string.
+      # - option version [String] Version of the release.
       # - return [JSON::Any] Release content (chart + value) for the specified release.
       #
       # ```
@@ -49,7 +51,7 @@ module Swift
       # Retrieves a releasse's history.
       #
       # - release [String] The name of the release.
-      # - option max [Int32] The maximum number of releases to include.
+      # - option max [Int32] The maximum number of releases to include. defaults to 20.
       # - return [JSON::Any] Releasse's history.
       #
       # ```
@@ -80,14 +82,17 @@ module Swift
         get("/tiller/v2/releases/#{release}/rollback/json", params: params).parse
       end
 
-      # Requests installation of a chart as a new release
+      # Requests installation of a chart as a new release.
       #
       # - release [String] The name of the release.
-      # - json [JSON] JSON Body to send to Tiller.
+      # - json [JSON] JSON Body to send to Tiller. example - [link placeholder]
       # - return [JSON::Any] Release content (chart + value) for the specified release.
       #
       # ```
-      # client.install_release("release_x", "version_1")
+      # client.install_release("release_x", { "chart_url" => "https://github.com/tamalsaha/test-chart/raw/master/test-chart-0.1.0.tgz" })
+      # client.install_release("release_x", { "chart_url" => "https://chartmuseum.com/my-release/test-chart-0.1.0.tgz", "username" => "user_x", "password" => "xxx" }) # username and password are for the private chartmuseum
+      # client.install_release("release_x", { "chart_url" => "stable/fluent-bit" })
+      # client.install_release("release_x", { "chart_url" => "stable/fluent-bit/0.1.2" })
       # ```
       def install_release(release : String, json : JSON::Any) : JSON::Any
         post("/tiller/v2/releases/#{release}/json", json: json).parse
@@ -100,7 +105,10 @@ module Swift
       # - return [JSON::Any] Release content (chart + value) for the specified release.
       #
       # ```
-      # client.update_release("release_x", "version_1")
+      # client.update_release("release_x", { "chart_url" => "https://github.com/tamalsaha/test-chart/raw/master/test-chart-0.1.0.tgz" })
+      # client.update_release("release_x", { "chart_url" => "https://chartmuseum.com/my-release/test-chart-0.1.0.tgz", "username" => "user_x", "password" => "xxx" }) # username and password are for the private chartmuseum
+      # client.update_release("release_x", { "chart_url" => "stable/fluent-bit" })
+      # client.update_release("release_x", { "chart_url" => "stable/fluent-bit/0.1.2" })
       # ```
       def update_release(release : String, json : JSON::Any) : JSON::Any
         put("/tiller/v2/releases/#{release}/json", json: json).parse
@@ -109,7 +117,7 @@ module Swift
       # Requests deletion of a named release
       #
       # - release [String] The name of the release.
-      # - option purge [Bool] removes the release from the store and make its name free for later use
+      # - option purge [Bool] Removes the release from the store and make its name free for later use
       # - return [JSON::Any] Release content (chart + value) for the specified release.
       #
       # ```
