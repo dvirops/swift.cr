@@ -3,6 +3,6 @@ version: '2'
 services:
   app:
     build: .
-    command: tail -f /dev/null
+    command: reflex -d fancy -s -g reflex.conf -- reflex -c reflex.conf
     volumes:
     - .:/app
