@@ -16,7 +16,7 @@ def load_fixture(name : String?)
 end
 
 # GET
-def stub_get(path, fixture, params = nil, response_headers = {} of String => String, status = 200)
+def stub_get(path, fixture = nil, params = nil, response_headers = {} of String => String, status = 200)
   query = "?#{HTTP::Params.encode(params)}" if params
 
   response_headers.merge!({"Content-Type" => "application/json"})
@@ -26,7 +26,7 @@ def stub_get(path, fixture, params = nil, response_headers = {} of String => Str
 end
 
 # POST
-def stub_post(path, fixture, status_code = 200, params = nil, form = nil, response_headers = {} of String => String)
+def stub_post(path, fixture = nil, status_code = 200, params = nil, form = nil, response_headers = {} of String => String)
   query = "?#{HTTP::Params.escape(params)}" if params
   body = HTTP::Params.encode(form) if form
 
@@ -37,7 +37,7 @@ def stub_post(path, fixture, status_code = 200, params = nil, form = nil, respon
 end
 
 # PUT
-def stub_put(path, fixture, form = nil, response_headers = {} of String => String)
+def stub_put(path, fixture = nil, form = nil, response_headers = {} of String => String)
   body = HTTP::Params.encode(form) if form
 
   response_headers.merge!({"Content-Type" => "application/json"})
@@ -47,7 +47,7 @@ def stub_put(path, fixture, form = nil, response_headers = {} of String => Strin
 end
 
 # DELETE
-def stub_delete(path, fixture, form = nil, response_headers = {} of String => String)
+def stub_delete(path, fixture = nil, form = nil, response_headers = {} of String => String)
   body = HTTP::Params.encode(form) if form
 
   response_headers.merge!({"Content-Type" => "application/json"})
