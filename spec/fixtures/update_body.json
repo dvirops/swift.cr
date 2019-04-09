@@ -1,0 +1,95 @@
+{
+  "ca_bundle": "string",
+  "chart": {
+    "dependencies": [
+      null
+    ],
+    "files": [
+      {
+        "type_url": "string",
+        "value": "string"
+      }
+    ],
+    "metadata": {
+      "annotations": {
+        "additionalProp1": "string",
+        "additionalProp2": "string",
+        "additionalProp3": "string"
+      },
+      "apiVersion": "string",
+      "appVersion": "string",
+      "condition": "string",
+      "deprecated": true,
+      "description": "string",
+      "engine": "string",
+      "home": "string",
+      "icon": "string",
+      "keywords": [
+        "string"
+      ],
+      "kubeVersion": "string",
+      "maintainers": [
+        {
+          "email": "string",
+          "name": "string",
+          "url": "string"
+        }
+      ],
+      "name": "string",
+      "sources": [
+        "string"
+      ],
+      "tags": "string",
+      "tillerVersion": "string",
+      "version": "string"
+    },
+    "templates": [
+      {
+        "data": "string",
+        "name": "string"
+      }
+    ],
+    "values": {
+      "raw": "string",
+      "values": {
+        "additionalProp1": {
+          "value": "string"
+        },
+        "additionalProp2": {
+          "value": "string"
+        },
+        "additionalProp3": {
+          "value": "string"
+        }
+      }
+    }
+  },
+  "chart_url": "string",
+  "client_certificate": "string",
+  "client_key": "string",
+  "disable_hooks": true,
+  "dry_run": true,
+  "insecure_skip_verify": true,
+  "name": "string",
+  "namespace": "string",
+  "password": "string",
+  "reuse_name": true,
+  "timeout": 0,
+  "token": "string",
+  "username": "string",
+  "values": {
+    "raw": "string",
+    "values": {
+      "additionalProp1": {
+        "value": "string"
+      },
+      "additionalProp2": {
+        "value": "string"
+      },
+      "additionalProp3": {
+        "value": "string"
+      }
+    }
+  },
+  "wait": true
+}

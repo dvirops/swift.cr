@@ -89,10 +89,10 @@ module Swift
       # - return [JSON::Any] Release content (chart + value) for the specified release.
       #
       # ```
-      # client.install_release("release_x", { "chart_url" => "https://github.com/tamalsaha/test-chart/raw/master/test-chart-0.1.0.tgz" })
-      # client.install_release("release_x", { "chart_url" => "https://chartmuseum.com/my-release/test-chart-0.1.0.tgz", "username" => "user_x", "password" => "xxx" }) # username and password are for the private chartmuseum
-      # client.install_release("release_x", { "chart_url" => "stable/fluent-bit" })
-      # client.install_release("release_x", { "chart_url" => "stable/fluent-bit/0.1.2" })
+      # client.install_release("release_x", {"chart_url" => "https://github.com/tamalsaha/test-chart/raw/master/test-chart-0.1.0.tgz"})
+      # client.install_release("release_x", {"chart_url" => "https://chartmuseum.com/my-release/test-chart-0.1.0.tgz", "username" => "user_x", "password" => "xxx"}) # username and password are for the private chartmuseum
+      # client.install_release("release_x", {"chart_url" => "stable/fluent-bit"})
+      # client.install_release("release_x", {"chart_url" => "stable/fluent-bit/0.1.2"})
       # ```
       def install_release(release : String, json : JSON::Any) : JSON::Any
         post("/tiller/v2/releases/#{release}/json", json: json).parse
@@ -105,10 +105,10 @@ module Swift
       # - return [JSON::Any] Release content (chart + value) for the specified release.
       #
       # ```
-      # client.update_release("release_x", { "chart_url" => "https://github.com/tamalsaha/test-chart/raw/master/test-chart-0.1.0.tgz" })
-      # client.update_release("release_x", { "chart_url" => "https://chartmuseum.com/my-release/test-chart-0.1.0.tgz", "username" => "user_x", "password" => "xxx" }) # username and password are for the private chartmuseum
-      # client.update_release("release_x", { "chart_url" => "stable/fluent-bit" })
-      # client.update_release("release_x", { "chart_url" => "stable/fluent-bit/0.1.2" })
+      # client.update_release("release_x", {"chart_url" => "https://github.com/tamalsaha/test-chart/raw/master/test-chart-0.1.0.tgz"})
+      # client.update_release("release_x", {"chart_url" => "https://chartmuseum.com/my-release/test-chart-0.1.0.tgz", "username" => "user_x", "password" => "xxx"}) # username and password are for the private chartmuseum
+      # client.update_release("release_x", {"chart_url" => "stable/fluent-bit"})
+      # client.update_release("release_x", {"chart_url" => "stable/fluent-bit/0.1.2"})
       # ```
       def update_release(release : String, json : JSON::Any) : JSON::Any
         put("/tiller/v2/releases/#{release}/json", json: json).parse
