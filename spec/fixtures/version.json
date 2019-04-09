@@ -1,1 +1,7 @@
-{"Version":{"sem_ver":"v2.13.0","git_commit":"79d07943b03aea2b76c12644b4b54733bc5958d6","git_tree_state":"clean"}}
+{
+  "Version": {
+    "git_commit": "string",
+    "git_tree_state": "string",
+    "sem_ver": "string"
+  }
+}

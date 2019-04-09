@@ -1,0 +1,126 @@
+{
+  "release": {
+    "chart": {
+      "dependencies": [
+        null
+      ],
+      "files": [
+        {
+          "type_url": "string",
+          "value": "string"
+        }
+      ],
+      "metadata": {
+        "annotations": {
+          "additionalProp1": "string",
+          "additionalProp2": "string",
+          "additionalProp3": "string"
+        },
+        "apiVersion": "string",
+        "appVersion": "string",
+        "condition": "string",
+        "deprecated": true,
+        "description": "string",
+        "engine": "string",
+        "home": "string",
+        "icon": "string",
+        "keywords": [
+          "string"
+        ],
+        "kubeVersion": "string",
+        "maintainers": [
+          {
+            "email": "string",
+            "name": "string",
+            "url": "string"
+          }
+        ],
+        "name": "string",
+        "sources": [
+          "string"
+        ],
+        "tags": "string",
+        "tillerVersion": "string",
+        "version": "string"
+      },
+      "templates": [
+        {
+          "data": "string",
+          "name": "string"
+        }
+      ],
+      "values": {
+        "raw": "string",
+        "values": {
+          "additionalProp1": {
+            "value": "string"
+          },
+          "additionalProp2": {
+            "value": "string"
+          },
+          "additionalProp3": {
+            "value": "string"
+          }
+        }
+      }
+    },
+    "config": {
+      "raw": "string",
+      "values": {
+        "additionalProp1": {
+          "value": "string"
+        },
+        "additionalProp2": {
+          "value": "string"
+        },
+        "additionalProp3": {
+          "value": "string"
+        }
+      }
+    },
+    "hooks": [
+      {
+        "delete_policies": [
+          "SUCCEEDED"
+        ],
+        "events": [
+          "UNKNOWN"
+        ],
+        "kind": "string",
+        "last_run": "2019-04-09T14:57:14.948Z",
+        "manifest": "string",
+        "name": "string",
+        "path": "string",
+        "weight": 0
+      }
+    ],
+    "info": {
+      "Description": "string",
+      "deleted": "2019-04-09T14:57:14.948Z",
+      "first_deployed": "2019-04-09T14:57:14.948Z",
+      "last_deployed": "2019-04-09T14:57:14.948Z",
+      "status": {
+        "code": "UNKNOWN",
+        "last_test_suite_run": {
+          "completed_at": "2019-04-09T14:57:14.948Z",
+          "results": [
+            {
+              "completed_at": "2019-04-09T14:57:14.948Z",
+              "info": "string",
+              "name": "string",
+              "started_at": "2019-04-09T14:57:14.948Z",
+              "status": "UNKNOWN"
+            }
+          ],
+          "started_at": "2019-04-09T14:57:14.948Z"
+        },
+        "notes": "string",
+        "resources": "string"
+      }
+    },
+    "manifest": "string",
+    "name": "string",
+    "namespace": "string",
+    "version": 0
+  }
+}

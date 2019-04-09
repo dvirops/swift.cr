@@ -1,0 +1,83 @@
+{
+  "count": 0,
+  "next": "string",
+  "releases": [
+    {
+      "chart_metadata": {
+        "annotations": {
+          "additionalProp1": "string",
+          "additionalProp2": "string",
+          "additionalProp3": "string"
+        },
+        "apiVersion": "string",
+        "appVersion": "string",
+        "condition": "string",
+        "deprecated": true,
+        "description": "string",
+        "engine": "string",
+        "home": "string",
+        "icon": "string",
+        "keywords": [
+          "string"
+        ],
+        "kubeVersion": "string",
+        "maintainers": [
+          {
+            "email": "string",
+            "name": "string",
+            "url": "string"
+          }
+        ],
+        "name": "string",
+        "sources": [
+          "string"
+        ],
+        "tags": "string",
+        "tillerVersion": "string",
+        "version": "string"
+      },
+      "config": {
+        "raw": "string",
+        "values": {
+          "additionalProp1": {
+            "value": "string"
+          },
+          "additionalProp2": {
+            "value": "string"
+          },
+          "additionalProp3": {
+            "value": "string"
+          }
+        }
+      },
+      "info": {
+        "Description": "string",
+        "deleted": "2019-04-09T14:57:46.593Z",
+        "first_deployed": "2019-04-09T14:57:46.593Z",
+        "last_deployed": "2019-04-09T14:57:46.593Z",
+        "status": {
+          "code": "UNKNOWN",
+          "last_test_suite_run": {
+            "completed_at": "2019-04-09T14:57:46.593Z",
+            "results": [
+              {
+                "completed_at": "2019-04-09T14:57:46.593Z",
+                "info": "string",
+                "name": "string",
+                "started_at": "2019-04-09T14:57:46.593Z",
+                "status": "UNKNOWN"
+              }
+            ],
+            "started_at": "2019-04-09T14:57:46.593Z"
+          },
+          "notes": "string",
+          "resources": "string"
+        }
+      },
+      "name": "string",
+      "namespace": "string",
+      "version": 0
+    }
+  ],
+  "total": 0
+}

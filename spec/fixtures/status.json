@@ -1,0 +1,28 @@
+{
+  "info": {
+    "Description": "string",
+    "deleted": "2019-04-09T14:59:25.605Z",
+    "first_deployed": "2019-04-09T14:59:25.605Z",
+    "last_deployed": "2019-04-09T14:59:25.605Z",
+    "status": {
+      "code": "UNKNOWN",
+      "last_test_suite_run": {
+        "completed_at": "2019-04-09T14:59:25.605Z",
+        "results": [
+          {
+            "completed_at": "2019-04-09T14:59:25.605Z",
+            "info": "string",
+            "name": "string",
+            "started_at": "2019-04-09T14:59:25.605Z",
+            "status": "UNKNOWN"
+          }
+        ],
+        "started_at": "2019-04-09T14:59:25.605Z"
+      },
+      "notes": "string",
+      "resources": "string"
+    }
+  },
+  "name": "string",
+  "namespace": "string"
+}
