@@ -93,7 +93,7 @@ charts = swift_client.version("application-1", "6412")
 
 ## Contributors
 
-- [Josh Dvir](https://github.com/devops-israel) - creator and maintainer
+- [Josh Dvir](https://github.com/joshdvir) - creator and maintainer
 
 ## License
 
