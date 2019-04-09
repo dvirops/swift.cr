@@ -1,11 +1,11 @@
 # Swift.cr
 
-[![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://joshdvir.github.io/swift.cr/)
-[![GitHub release](https://img.shields.io/github/release/joshdvir/swift.cr.svg)](https://github.com/joshdvir/swift.cr/releases)
-[![Build Status](https://travis-ci.org/joshdvir/swift.cr.svg?branch=master)](https://travis-ci.org/joshdvir/swift.cr)
+[![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://devops-israel.github.io/swift.cr/)
+[![GitHub release](https://img.shields.io/github/release/devops-israel/swift.cr.svg)](https://github.com/devops-israel/swift.cr/releases)
+[![Build Status](https://travis-ci.org/devops-israel/swift.cr.svg?branch=master)](https://travis-ci.org/devops-israel/swift.cr)
 
 
-[swift.cr](https://github.com/joshdvir/swift.cr) is a [Swift API](https://appscode.com/products/swift/) wrapper writes with [Crystal](http://crystal-lang.org/) Language.
+[swift.cr](https://github.com/devops-israel/swift.cr) is a [Swift API](https://appscode.com/products/swift/) wrapper writes with [Crystal](http://crystal-lang.org/) Language.
 
 Inspired from [gitlab](https://github.com/icyleaf/gitlab.cr).
 
@@ -16,7 +16,7 @@ Inspired from [gitlab](https://github.com/icyleaf/gitlab.cr).
 ```yaml
 dependencies:
   swift:
-    github: joshdvir/swift.cr
+    github: devops-israel/swift.cr
 ```
 
 2. Run `shards install`
@@ -85,7 +85,7 @@ charts = swift_client.version("application-1", "6412")
 
 ## Contributing
 
-1. Fork it (https://github.com/joshdvir/swift.cr/fork)
+1. Fork it (https://github.com/devops-israel/swift.cr/fork)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
@@ -93,8 +93,8 @@ charts = swift_client.version("application-1", "6412")
 
 ## Contributors
 
-- [Josh Dvir](https://github.com/joshdvir) - creator and maintainer
+- [Josh Dvir](https://github.com/devops-israel) - creator and maintainer
 
 ## License
 
-[MIT License](https://github.com/joshdvir/swift.cr/blob/master/LICENSE) © joshdvir
+[MIT License](https://github.com/devops-israel/swift.cr/blob/master/LICENSE) © devops-israel
