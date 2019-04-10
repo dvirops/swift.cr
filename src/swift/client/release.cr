@@ -12,7 +12,6 @@ module Swift
       # - option params [String] :namespace [name of namespace] | EMPTY (for all namespaces)
       # - option params [String] :offset Offset is the last release name that was seen. The next listing operation will start with the name after this one. Example: If list one returns albert, bernie, carl, and sets 'next: dennis'. dennis is the offset. Supplying 'dennis' for the next request should cause the next batch to return a set of results starting with 'dennis'.
       # - option params [String] :sort_by UNKNOWN | NAME | LAST_RELEASED
-
       # - option params [String] :sort_order ASC | DESC
       # - option params [String] :status_codes UNKNOWN | DEPLOYED | DELETED | SUPERSEDED | FAILED | DELETING
       # - return [JSON::Any] List of all releases.
