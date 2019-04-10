@@ -44,7 +44,7 @@ swift_client.available?
 
 #### Completed
 
-##### Chart Manipulation
+##### Release Manipulation
 - `GET /tiller/v2/releases/json` - List releases
 - `GET /tiller/v2/releases/[name]/status/json` - list release status
 - `GET /tiller/v2/releases/[name]/content/json` - list release content
