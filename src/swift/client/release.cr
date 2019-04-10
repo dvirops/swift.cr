@@ -114,8 +114,8 @@ module Swift
       # client.install_release("release_x", {"chart_url" => "stable/fluent-bit"})
       # client.install_release("release_x", {"chart_url" => "stable/fluent-bit/0.1.2"})
       # ```
-      def install_release(release : String, json : JSON::Any) : JSON::Any
-        post("/tiller/v2/releases/#{release}/json", json: json).parse
+      def install_release(release : String, form : (Hash(String, _) | NamedTuple)) : JSON::Any
+        post("/tiller/v2/releases/#{release}/json", form: form).parse
       end
 
       # Updates release content.
@@ -146,8 +146,8 @@ module Swift
       # client.update_release("release_x", {"chart_url" => "stable/fluent-bit"})
       # client.update_release("release_x", {"chart_url" => "stable/fluent-bit/0.1.2"})
       # ```
-      def update_release(release : String, json : JSON::Any) : JSON::Any
-        put("/tiller/v2/releases/#{release}/json", json: json).parse
+      def update_release(release : String, form : (Hash(String, _) | NamedTuple)) : JSON::Any
+        put("/tiller/v2/releases/#{release}/json", form: form).parse
       end
 
       # Requests deletion of a named release
@@ -159,10 +159,10 @@ module Swift
       # - return [JSON::Any] Release content (chart + value) for the specified release.
       #
       # ```
-      # client.uninstall_release("release_x", true)
+      # client.uninstall_release("release_x", params: {"purge" => true, "disable_hooks" => true, "timeout" => 50})
       # ```
-      def uninstall_release(release : String, params : (Hash(String, _) | NamedTuple)? = nil) : JSON::Any
-        delete("/tiller/v2/releases/#{release}/json", params: params).parse
+      def uninstall_release(release : String, form : (Hash(String, _) | NamedTuple)? = nil) : JSON::Any
+        delete("/tiller/v2/releases/#{release}/json", form: form).parse
       end
     end
   end
