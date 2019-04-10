@@ -32,24 +32,12 @@ username = "<username>"
 password = "<password>"
 
 # initialize a new client with user and password for basic auth
-swift_client = swift.client(endpoint, username, password)
-# => #<swift::Client:0x101653f20 @endpoint="https://charts.example.com", @username="xxx", @password="xxx>
+swift_client = Swift.client(endpoint, username, password)
+# => #<Swift::Client:0x101653f20 @endpoint="https://charts.example.com", @username="xxx", @password="xxx>
 
 # server health
 swift_client.available?
 # true
-
-# get all charts and their versions
-charts = swift_client.charts
-# => {"application-1":[{"name":"application-1","version":"6410","description":"application-1 Chart","apiVersion":"v1","appVersion":"6410","urls":["charts/application-1-6410.tgz"],"created":"2019-01-27T08:43:46Z","digest":"10abe509f97a8ca20d7be48459cc3cd5190a9800783744b751cb98e98263ed09"},...]}
-
-# get specific chart and its versions
-charts = swift_client.chart("application-1")
-# => [{"name":"application-1","version":"6410","description":"application-1 Chart","apiVersion":"v1","appVersion":"6410","urls":["charts/application-1-6410.tgz"],"created":"2019-01-27T08:43:46Z","digest":"10abe509f97a8ca20d7be48459cc3cd5190a9800783744b751cb98e98263ed09"},...]
-
-# get specific version of a chart
-charts = swift_client.version("application-1", "6412")
-# => {"name":"application-1","version":"6412","description":"application-1 Chart","apiVersion":"v1","appVersion":"6412","urls":["charts/application-1-6412.tgz"],"created":"2019-01-27T08:43:46Z","digest":"10abe509f97a8ca20d7be48459cc3cd5190a9800783744b751cb98e98263ed09"}
 ```
 
 ## Implemented API
@@ -57,19 +45,17 @@ charts = swift_client.version("application-1", "6412")
 #### Completed
 
 ##### Chart Manipulation
-- `GET /api/charts` - list all charts
-- `GET /api/charts/[name]` - list all versions of a chart
-- `GET /api/charts/[name]/[version]` - describe a chart version
+- `GET /tiller/v2/releases/json` - List releases
+- `GET /tiller/v2/releases/[name]/status/json` - list release status
+- `GET /tiller/v2/releases/[name]/content/json` - list release content
+- `GET /tiller/v2/releases/[name]/json` - list release history
+- `GET /tiller/v2/releases/[name]/rollback/json` - rollback a release
+- `POST /tiller/v2/releases/[name]/json` - install a new release
+- `PUT /tiller/v2/releases/[name]/json` - upgrade a new release
+- `DELETE /tiller/v2/releases/[name]/json` - delete a release
 
 ### Server Info
-- `GET /health` - returns 200 OK
-
-#### TODO:
-
-##### Chart Manipulation
-- `POST /api/charts` - upload a new chart version
-- `POST /api/prov` - upload a new provenance file
-- `DELETE /api/charts/[name]/[version]` - delete a chart version (and corresponding provenance file)
+- `GET /tiller/v2/version/json` - returns 200 OK
 
 ## Development
 
@@ -79,9 +65,8 @@ charts = swift_client.version("application-1", "6412")
 
 ### Commands
 
-* From inside the root of the project run `docker-compose up -d`
-* Exec to the container created `docker exec -it swift_app_1 bash`
-* When inside the container run the tests `crystal spec`
+* From inside the root of the project run `docker-compose up`
+* The container is configured to run tests every time a file is changed so just start developing.
 
 ## Contributing
 
