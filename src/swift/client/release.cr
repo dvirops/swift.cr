@@ -68,13 +68,13 @@ module Swift
       # Rolls back a release to a previous version
       #
       # - release [String] The name of the release.
-      # - option params [Bool] :disable_hooks true | false
-      # - option params [Bool] :dry_run true | false
-      # - option params [Bool] :force true | false
-      # - option params [Bool] :recreate true | false
-      # - option params [Int64] :timeout true | false
+      # - option params [Bool] :disable_hooks Causes the server to skip running any hooks for the rollback.
+      # - option params [Bool] :dry_run If true, will run through the release logic but no create.
+      # - option params [Bool] :force Force resource update through delete/recreate if needed.
+      # - option params [Bool] :recreate Performs pods restart for resources if applicable.
+      # - option params [Int64] :timeout Specifies the max amount of time any kubernetes client command can run.
       # - option params [Int32] :version the version of the release to deploy.
-      # - option params [Bool] :wait true | false
+      # - option params [Bool] :wait if true, will wait until all Pods, PVCs, and Services are in a ready state before marking the release as successful. It will wait for as long as timeout.
       # - return [JSON::Any] Release content (chart + value) for the specified release.
       #
       # ```
