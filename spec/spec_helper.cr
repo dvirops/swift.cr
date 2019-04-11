@@ -6,6 +6,8 @@ SWIFT_ENDPOINT = "https://swift.example.com"
 SWIFT_USERNAME = "username"
 SWIFT_PASSWORD = "password"
 
+Spec.before_each &->WebMock.reset
+
 def client
   Swift.client(SWIFT_ENDPOINT, SWIFT_USERNAME, SWIFT_PASSWORD)
 end

@@ -1,0 +1,13 @@
+{
+  "name": "application-x",
+  "info": {
+    "status": {
+      "code": "DEPLOYED",
+      "resources": "==> v1/Deployment\nNAME                            READY   UP-TO-DATE   AVAILABLE   AGE\napplication-x-web-13492-v4   1/1     1            1           138m\napplication-x-workers-13492-v4   1/1   1     1     138m\n\n==> v1/Pod(related)\nNAME                                             READY   STATUS    RESTARTS   AGE\napplication-x-web-13492-v4-6968849cd9-dj6nd   1/1     Running   0          138m\napplication-x-workers-13492-v4-5dc8fbddf4-p6289   1/1   Running   0     138m\n\n"
+    },
+    "first_deployed": "2019-04-04T14:18:47.246995980Z",
+    "last_deployed": "2019-04-10T13:49:23.502652655Z",
+    "Description": "Upgrade complete"
+  },
+  "namespace": "develop"
+}

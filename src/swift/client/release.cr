@@ -34,8 +34,9 @@ module Swift
       # ```
       # client.release_status("release_x")
       # ```
-      def release_status(release : String, params : (Hash(String, _) | NamedTuple)? = nil) : JSON::Any
-        get("/tiller/v2/releases/#{release}/status/json", params: params).parse
+      def release_status(release : String, params : (Hash(String, _) | NamedTuple)? = nil) : {JSON::Any, JSON::Any | Nil}
+        status_response = get("/tiller/v2/releases/#{release}/status/json", params: params).parse
+        return status_response, parse_status_resources(status_response)
       end
 
       # Retrieves the release content (chart + value) for the specified release.
@@ -162,6 +163,44 @@ module Swift
       # ```
       def uninstall_release(release : String, form : (Hash(String, _) | NamedTuple)? = nil) : JSON::Any
         delete("/tiller/v2/releases/#{release}/json", form: form).parse
+      end
+
+      def parse_status_resources(status_response)
+        if status_response["info"] && status_response["info"]["status"] && status_response["info"]["status"]["resources"]
+          array = Hash(String, Array(NamedTuple(name: String, status: String, restarts: Int32))).new
+          resources = status_response["info"]["status"]["resources"].to_s.split("\n\n")
+          if resources.size > 1
+            resources.each do |section|
+              lines = section.split("\n")
+              name = ""
+              lines.each do |line|
+                line = line.split("\n")[0]
+                if line
+                  if line.starts_with?("==>")
+                    name = line[4...line.size].split("(")[0]
+                  end
+
+                  if !line.starts_with?("NAME") && !line.starts_with?("==>")
+                    trimmed_line = line.split
+                    if trimmed_line.size > 2
+                      hash = NamedTuple.new(name: trimmed_line[0], status: trimmed_line[2], restarts: trimmed_line[3].to_i32)
+                      if array.has_key?(name)
+                        array[name] << hash
+                      else
+                        array[name] = [hash]
+                      end
+                    end
+                  end
+                end
+              end
+            end
+            JSON.parse(array.to_json)
+          else
+            JSON.parse("{}")
+          end
+        else
+          JSON.parse("{}")
+        end
       end
     end
   end

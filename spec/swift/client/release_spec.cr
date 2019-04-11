@@ -13,29 +13,27 @@ describe Swift::Client::Release do
       (releases["count"].as_i >= 0).should eq true
       (releases["releases"].size > 0).should eq true
     end
-
-    it "should return an empty json data of releases" do
-      stub_get("/tiller/v2/releases/json")
-      releases = client.releases
-
-      releases.should be_a JSON::Any
-      releases["releases"].is_a? Array
-      releases["next"].is_a? String
-      (releases["total"].as_i >= 0).should eq true
-      (releases["count"].as_i >= 0).should eq true
-      (releases["releases"].size > 0).should eq true
-    end
   end
 
   describe "#release_status" do
     it "should return status information for the specified release" do
       stub_get("/tiller/v2/releases/name/status/json", "status")
-      release_status = client.release_status("name")
+      release_status, resources = client.release_status("name")
 
       release_status.should be_a JSON::Any
       release_status["name"].as_s.should eq "string"
       release_status["namespace"].as_s.should eq "string"
       release_status["info"]["status"]["code"].as_s.should eq "UNKNOWN"
+    end
+
+    it "should return status information with parsed resources" do
+      stub_get("/tiller/v2/releases/name/status/json", "resources")
+      release_status, resources = client.release_status("name")
+
+      release_status.should be_a JSON::Any
+      release_status["name"].as_s.should eq "application-x"
+      release_status["namespace"].as_s.should eq "develop"
+      release_status["info"]["status"]["code"].as_s.should eq "DEPLOYED"
     end
   end
 
