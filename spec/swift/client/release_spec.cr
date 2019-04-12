@@ -34,6 +34,10 @@ describe Swift::Client::Release do
       release_status["name"].as_s.should eq "application-x"
       release_status["namespace"].as_s.should eq "develop"
       release_status["info"]["status"]["code"].as_s.should eq "DEPLOYED"
+      resources.should be_a JSON::Any
+      resources.size.should eq 2
+      resources["v1/Deployment"].size.should eq 2
+      resources["v1/Pod"].size.should eq 2
     end
   end
 
