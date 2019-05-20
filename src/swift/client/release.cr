@@ -167,7 +167,7 @@ module Swift
 
       def parse_status_resources(status_response)
         if status_response["info"] && status_response["info"]["status"] && status_response["info"]["status"]["resources"]
-          array = Hash(String, Array(NamedTuple(name: String, status: String, restarts: Int32))).new
+          array = Hash(String, Array(NamedTuple(name: String, status: String, restarts: String))).new
           resources = status_response["info"]["status"]["resources"].to_s.split("\n\n")
           if resources.size > 1
             resources.each do |section|
