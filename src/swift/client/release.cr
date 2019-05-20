@@ -183,7 +183,7 @@ module Swift
                   if !line.starts_with?("NAME") && !line.starts_with?("==>")
                     trimmed_line = line.split
                     if trimmed_line.size > 2
-                      hash = NamedTuple.new(name: trimmed_line[0], status: trimmed_line[2], restarts: trimmed_line[3].to_i32)
+                      hash = NamedTuple.new(name: trimmed_line[0], status: trimmed_line[2], restarts: trimmed_line[3])
                       if array.has_key?(name)
                         array[name] << hash
                       else
