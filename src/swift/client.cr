@@ -59,7 +59,7 @@ module Swift
       # ```
       def {{ verb.id }}(uri : String, headers : (Hash(String, _) | NamedTuple)? = nil, params : (Hash(String, _) | NamedTuple)? = nil, form : (Hash(String, _) | NamedTuple)? = nil, json : (Hash(String, _) | NamedTuple)? = nil) : Halite::Response
         headers = headers ? default_headers.merge(headers) : default_headers
-        response = Halite.{{verb.id}}(build_url(uri), headers: headers, params: params, form: form, json: nil)
+        response = Halite.{{verb.id}}(build_url(uri), headers: headers, params: params, form: form, json: json)
         validate(response)
         response
       end

@@ -115,7 +115,7 @@ module Swift
       # client.install_release("release_x", form: {"chart_url" => "stable/fluent-bit/0.1.2"})
       # ```
       def install_release(release : String, form : (Hash(String, _) | NamedTuple)) : JSON::Any
-        post("/tiller/v2/releases/#{release}/json", form: form).parse
+        post("/tiller/v2/releases/#{release}/json", json: form).parse
       end
 
       # Updates release content.
@@ -147,7 +147,7 @@ module Swift
       # client.update_release("release_x", form: {"chart_url" => "stable/fluent-bit/0.1.2"})
       # ```
       def update_release(release : String, form : (Hash(String, _) | NamedTuple)) : JSON::Any
-        put("/tiller/v2/releases/#{release}/json", form: form).parse
+        put("/tiller/v2/releases/#{release}/json", json: form).parse
       end
 
       # Requests deletion of a named release

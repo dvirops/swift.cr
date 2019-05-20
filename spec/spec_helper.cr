@@ -30,7 +30,8 @@ end
 # POST
 def stub_post(path, fixture = nil, status_code = 200, params = nil, form = nil, response_headers = {} of String => String)
   query = "?#{HTTP::Params.escape(params)}" if params
-  body = HTTP::Params.encode(form) if form
+  # body = HTTP::Params.encode(form) if form
+  body = form.to_json if form
 
   response_headers.merge!({"Content-Type" => "application/json"})
   WebMock.stub(:post, "#{client.endpoint}#{path}#{query}")
@@ -40,7 +41,8 @@ end
 
 # PUT
 def stub_put(path, fixture = nil, form = nil, response_headers = {} of String => String)
-  body = HTTP::Params.encode(form) if form
+  # body = HTTP::Params.encode(form) if form
+  body = form.to_json if form
 
   response_headers.merge!({"Content-Type" => "application/json"})
   WebMock.stub(:put, "#{client.endpoint}#{path}")
