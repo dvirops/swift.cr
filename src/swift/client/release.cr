@@ -161,8 +161,8 @@ module Swift
       # ```
       # client.uninstall_release("release_x", params: {"purge" => true, "disable_hooks" => true, "timeout" => 50})
       # ```
-      def uninstall_release(release : String, form : (Hash(String, _) | NamedTuple)? = nil) : JSON::Any
-        delete("/tiller/v2/releases/#{release}/json", form: form).parse
+      def uninstall_release(release : String, params : (Hash(String, _) | NamedTuple)? = nil) : JSON::Any
+        delete("/tiller/v2/releases/#{release}/json", params: params).parse
       end
 
       def parse_status_resources(status_response)

@@ -51,11 +51,12 @@ def stub_put(path, fixture = nil, form = nil, response_headers = {} of String =>
 end
 
 # DELETE
-def stub_delete(path, fixture = nil, form = nil, response_headers = {} of String => String)
-  body = HTTP::Params.encode(form) if form
+def stub_delete(path, fixture = nil, params = nil, response_headers = {} of String => String)
+  # body = HTTP::Params.encode(form) if form
+  query = "?#{HTTP::Params.encode(params)}" if params
 
   response_headers.merge!({"Content-Type" => "application/json"})
-  WebMock.stub(:delete, "#{client.endpoint}#{path}")
-    .with(body: body, headers: {"Authorization" => "Basic " + Base64.encode(client.username.to_s + ":" + client.password.to_s).chomp})
+  WebMock.stub(:delete, "#{client.endpoint}#{path}#{query}")
+    .with(headers: {"Authorization" => "Basic " + Base64.encode(client.username.to_s + ":" + client.password.to_s).chomp})
     .to_return(body: load_fixture(fixture), headers: response_headers)
 end

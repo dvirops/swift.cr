@@ -171,9 +171,9 @@ describe Swift::Client::Release do
     end
 
     it "should delete the named release with params" do
-      form = {purge: true, disable_hooks: true, timeout: 100}
-      stub_delete("/tiller/v2/releases/name/json", "delete", form: form)
-      uninstall_release = client.uninstall_release("name", form: form)
+      params = {purge: true, disable_hooks: true, timeout: 100}
+      stub_delete("/tiller/v2/releases/name/json", "delete", params: params)
+      uninstall_release = client.uninstall_release("name", params: params)
 
       uninstall_release.should be_a JSON::Any
       uninstall_release["release"]["name"].as_s.should eq "string"
