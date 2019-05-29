@@ -166,7 +166,7 @@ module Swift
       end
 
       def parse_status_resources(status_response)
-        if status_response["info"] && status_response["info"]["status"] && status_response["info"]["status"]["resources"]
+        if !status_response["info"]?.nil? && !status_response["info"]["status"]?.nil? && !status_response["info"]["status"]["resources"]?.nil?
           array = Hash(String, Array(NamedTuple(name: String, status: String, restarts: String))).new
           resources = status_response["info"]["status"]["resources"].to_s.split("\n\n")
           if resources.size > 1
