@@ -167,7 +167,7 @@ module Swift
 
       def parse_status_resources(status_response)
         if !status_response["info"]["status"]["resources"]?.nil?
-          array = Hash(String, Array(NamedTuple(name: String, status: String, restarts: String))).new
+          array = Hash(String, Array(NamedTuple(name: String | Nil, status: String | Nil, restarts: String | Nil))).new
           resources = status_response["info"]["status"]["resources"].to_s.split("\n\n")
           if resources.size > 1
             resources.each do |section|
@@ -183,7 +183,7 @@ module Swift
                   if !line.starts_with?("NAME") && !line.starts_with?("==>")
                     trimmed_line = line.split
                     if trimmed_line.size > 2
-                      hash = NamedTuple.new(name: trimmed_line[0], status: trimmed_line[2], restarts: trimmed_line[3])
+                      hash = NamedTuple.new(name: trimmed_line[0]?, status: trimmed_line[2]?, restarts: trimmed_line[3]?)
                       if array.has_key?(name)
                         array[name] << hash
                       else
